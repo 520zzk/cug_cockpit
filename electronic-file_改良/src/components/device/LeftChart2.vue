@@ -1,48 +1,54 @@
 <template>
   <div class="left-chart-1">
-    <div class="lc2-header">南望山设备情况</div>
+    <div class="lc2-header">未来城设备情况</div>
     <div class="lc1-details">设备监视总数<span>{{allDevice}}</span></div>
+    <!-- <dv-charts class="lc2-chart" :option="option" /> -->
     <dv-active-ring-chart class="lc1-chart" :config="config" />
-    <!-- <dv-capsule-chart :config="config" class="lc1-chart" /> -->
-    <!-- <dv-charts :option="option" /> -->
     <dv-decoration-2 style="height:10px;" />
   </div>
 </template>
 
 <script>
-import * as api from '@/api/api.js'
 
+import * as api from '@/api/api.js'
 export default {
-  name: 'LeftChart1',
+  name: 'LeftChart2',
   data () {
     return {
+      // option: {
+      //   series: [
+      //     {
+      //       type: 'pie',
+      //       data: [
+      //         { name: '收费系统', value: 93 },
+      //         { name: '通信系统', value: 32 },
+      //         { name: '监控系统', value: 65 },
+      //         { name: '供配电系统', value: 44 },
+      //         { name: '其他', value: 52 }
+      //       ],
+      //       radius: ['45%', '65%'],
+      //       insideLabel: {
+      //         show: false
+      //       },
+      //       outsideLabel: {
+      //         labelLineEndLength: 10,
+      //         formatter: '{percent}%\n{name}',
+      //         style: {
+      //           fontSize: 14,
+      //           fill: '#fff'
+      //         }
+      //       }
+      //     }
+      //   ],
+      //   color: ['#00baff', '#3de7c9', '#fff', '#ffc530', '#469f4b']
+      // }
       config: {
         radius: '70%',
         // activeRadius: '45%',
-        data: [
-          // {
-          //   name: '收费系统',
-          //   value: 167
-          // },
-          // {
-          //   name: '通信系统',
-          //   value: 67
-          // },
-          // {
-          //   name: '监控系统',
-          //   value: 123
-          // },
-          // {
-          //   name: '供配电系统',
-          //   value: 55
-          // },
-          // {
-          //   name: '其他',
-          //   value: 98
-          // }
-        ],
+        data: [],
+        lineWidth: 10,
         digitalFlopStyle: {
-          fontSize: 20
+          fontSize: 12
         },
         showOriginValue: true,
         // colors: ['#00baff', '#3de7c9', '#fff', '#ffc530', '#469f4b'],
@@ -67,17 +73,16 @@ export default {
   },
   methods: {
     init () {
-      api.getCategoryList('/62_op', {}).then(res => {
+      api.getCategoryList('/63_op', {}).then(res => {
         this.category = res.data
         for (var key in res.data) {
           this.fetchDevicesList(key)
         }
-        // this.$store.commit('changeData', { data: this.config.data, flag: 62 })
-        this.$store.dispatch('changeData', { data: this.config.data, flag: 62 })
+        this.$store.dispatch('changeData', { data: this.config.data, flag: 63 })
       })
     },
     fetchDevicesList (category) {
-      api.fetchDevicesList('/62_op', { category }).then(fetRes => {
+      api.fetchDevicesList('/63_op', { category }).then(fetRes => {
         if (fetRes.data.length > 0) {
           // console.log(fetRes.data, category)
           var temp = {}
@@ -85,6 +90,7 @@ export default {
           temp.value = fetRes.data.length
           this.allDevice += fetRes.data.length
           temp.data = fetRes.data
+          // console.log(fetRes.data)
           this.config.data.push(temp)
           this.config = { ...this.config }
           // this.$forceUpdate()
@@ -96,28 +102,26 @@ export default {
     }
   }
 }
+
 </script>
 
 <style lang="less">
-.left-chart-1 {
+.left-chart-2 {
   width: 100%;
-  height: 37%;
+  height: 30%;
   display: flex;
-  flex-grow: 0;
   flex-direction: column;
 
-  .lc1-header {
-    text-align: center;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    margin-bottom: 20px;
+  .lc2-header {
+    height: 20px;
+    line-height: 20px;
+    font-size: 16px;
+    text-indent: 20px;
+    margin-top: 10px;
   }
 
-  .lc1-details {
-    height: 50px;
+  .lc2-details {
+    height: 40px;
     font-size: 16px;
     display: flex;
     align-items: center;
@@ -126,13 +130,13 @@ export default {
     span {
       color: #096dd9;
       font-weight: bold;
-      font-size: 35px;
+      font-size: 1.5rem;
       margin-left: 20px;
     }
   }
 
-  .lc1-chart {
-    flex: 1;
+  .lc2-chart {
+    height: calc(~"100% - 80px");
   }
 }
 </style>

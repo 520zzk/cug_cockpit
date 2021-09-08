@@ -13,38 +13,13 @@ export default {
   name: 'LeftChart3',
   data () {
     return {
-      // config: {
-      //   data: [
-      //     {
-      //       name: '收费系统',
-      //       value: 78
-      //     },
-      //     {
-      //       name: '通信系统',
-      //       value: 54
-      //     },
-      //     {
-      //       name: '监控系统',
-      //       value: 123
-      //     },
-      //     {
-      //       name: '供配电系统',
-      //       value: 167
-      //     },
-      //     {
-      //       name: '其他',
-      //       value: 77
-      //     }
-      //   ],
-      //   colors: ['#00baff', '#3de7c9', '#fff', '#ffc530', '#469f4b'],
-      //   unit: '件'
-      // }
       config: {
         radius: '70%',
         // activeRadius: '45%',
         data: [],
+        lineWidth: 10,
         digitalFlopStyle: {
-          fontSize: 20
+          fontSize: 12
         },
         showOriginValue: true,
         // colors: ['#00baff', '#3de7c9', '#fff', '#ffc530', '#469f4b'],

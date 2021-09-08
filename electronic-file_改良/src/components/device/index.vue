@@ -1,7 +1,8 @@
 <template>
   <div id="data-view">
     <div class="tips" :class=" {'tips_animation': changeTimeStatus == false  }">设置时间不低于5分钟，不超过60分钟</div>
-    <dv-full-screen-container>
+    <!-- <dv-full-screen-container> -->
+    <div id="dv-full-screen-container">
       <div class="main-header">
         <!-- <div class="mh-left">技术支持:<a href="https://github.com/jiaming743/DataV">https://github.com/jiaming743/DataV</a></div> -->
         <div class="mh-left"></div>
@@ -64,8 +65,8 @@
           </dv-border-box-10>
         </div>
       </dv-border-box-1>
-
-    </dv-full-screen-container>
+    </div>
+    <!-- </dv-full-screen-container> -->
   </div>
 </template>
 
@@ -217,7 +218,7 @@ export default {
     }
 
     .mh-middle {
-      font-size: 30px;
+      font-size: 1.5rem;
     }
 
     .mh-left, .mh-right {

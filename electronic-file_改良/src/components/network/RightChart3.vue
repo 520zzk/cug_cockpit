@@ -2,7 +2,7 @@
   <div class="left-chart-1">
    <div class="bc-chart-item">
       <!-- <div class="bcci-header">联通出口流量</div> -->
-      <div id="option_8" class="bottom-charts"></div>
+      <div id="option_7" class="bottom-charts"></div>
        <dv-decoration-2 style="height:10px;" />
     </div>
   </div>
@@ -17,9 +17,10 @@ export default {
     return {
       option: {
         title: {
-          text: '广佳互联流量',
+          text: '电信互联流量',
           textStyle: {
-            color: '#fff'
+            color: '#fff',
+            fontSize: 16
           }
         },
         tooltip: {
@@ -106,13 +107,13 @@ export default {
 
   },
   mounted () {
-    this.myChart_1 = echarts.init(document.getElementById('option_8'))
+    this.myChart_1 = echarts.init(document.getElementById('option_7'))
     this.init()
   },
   methods: {
     init () {
-      // IF-10.92.0.4.30000000001-30000019428 et-1/0/49-LinK_To_GuangJia_DWDM 10.92.0.4 广佳互联流量
-      this.handleData('IF-10.92.0.4.30000000001-30000019428', this.option, this.myChart_1)
+      // IF-10.92.0.4.30000000001-30000019425 ae2-LinK_To_HL_WLC_BoFen_200G 10.92.0.4 电信互联流量
+      this.handleData('IF-10.92.0.4.30000000001-30000019425', this.option, this.myChart_1)
     },
     handleData (interfaceName, option, target) {
       let optionTemp = { ...option }
@@ -123,10 +124,10 @@ export default {
         period: 'twfourhours'
       }).then(res => {
         var resData = res.data
-        this.suffix = resData.suffix
         for (var i = 0; i < resData.graphData.length; i++) {
           var data2 = []
           data2 = resData.graphData[i].data
+          this.suffix = resData.suffix
           optionTemp.series[i].name = resData.graphData[i].seriesname
           optionTemp.series[i].data = data2
         }

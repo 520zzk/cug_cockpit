@@ -246,7 +246,7 @@ export default {
     display: flex;
     position: relative;
     .bottom-title{
-      font-size: 24px;
+      font-size: 1.2rem;
       font-weight: bold;
       padding:5px;
       width:2rem;

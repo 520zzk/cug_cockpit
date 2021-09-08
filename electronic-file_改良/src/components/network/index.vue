@@ -1,8 +1,9 @@
 <template>
   <div id="data-view">
     <div class="tips" :class=" {'tips_animation': changeTimeStatus == false  }">设置时间不低于5分钟，不超过60分钟</div>
-    <dv-full-screen-container>
-      <div class="main-header">
+    <!-- <dv-full-screen-container> -->
+      <div id="dv-full-screen-container">
+        <div class="main-header">
         <div class="mh-left"></div>
         <div class="mh-middle">中国地质大学 校园网运行监控</div>
         <div class="mh-right">
@@ -67,7 +68,8 @@
           </dv-border-box-12>
       </dv-border-box-1>
 
-    </dv-full-screen-container>
+      </div>
+    <!-- </dv-full-screen-container> -->
   </div>
 </template>
 
@@ -214,13 +216,15 @@ export default {
   #dv-full-screen-container {
     background-image: url('../../assets/img/bg.png');
     background-size: 100% 100%;
+    height: 100%;
+    width: 100%;
     box-shadow: 0 0 3px blue;
     display: flex;
     flex-direction: column;
   }
 //**头部 */
   .main-header {
-    height: 80px;
+    height: 10%;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -244,7 +248,7 @@ export default {
   }
 
   .main-container {
-    height: calc(~"100% - 80px");
+    height: 90%;
 
     .border-box-content {
       padding: 10px;
@@ -302,7 +306,7 @@ export default {
     text-align: center;
   }
   .tips{
-        position: fixed;
+    position: fixed;
     z-index: 1000;
     color: #999;
     width: 40%;

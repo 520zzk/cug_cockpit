@@ -70,7 +70,7 @@ export default {
   flex-direction: column;
 
   .rc1-header {
-    font-size: 24px;
+    font-size: 1.2rem;
     font-weight: bold;
     height: 30px;
     line-height: 30px;
@@ -113,10 +113,10 @@ export default {
     }
   }
 
-  .right {
-    flex: 1;
-    padding-bottom: 20px;
-    box-sizing: border-box;
-  }
+  // .right {
+  //   flex: 1;
+  //   padding-bottom: 20px;
+  //   box-sizing: border-box;
+  // }
 }
 </style>

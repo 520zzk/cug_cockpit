@@ -49,24 +49,7 @@ export default {
   data () {
     return {
       config: {
-        data: [
-          {
-            name: '收费站',
-            value: 1315
-          },
-          {
-            name: '监控中心',
-            value: 415
-          },
-          {
-            name: '道路外场',
-            value: 90
-          },
-          {
-            name: '其他',
-            value: 317
-          }
-        ],
+        data: [],
         color: ['#00baff', '#3de7c9', '#fff', '#ffc530', '#469f4b'],
         lineWidth: 30,
         radius: '55%',
@@ -184,28 +167,28 @@ export default {
   flex-direction: column;
 
   .cc-header {
-    height: 70px;
+    height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 30px;
+    font-size: 1.5rem;
   }
 
   .cc-details {
-    height: 120px;
+    height: 100px;
     display: flex;
     justify-content: center;
-    font-size: 32px;
+    font-size: 1.2rem;
     align-items: center;
 
     .card {
       background-color: rgba(4,49,128,.6);
       color: #08e5ff;
-      height: 70px;
-      width: 70px;
-      font-size: 45px;
+      height: 60px;
+      width: 60px;
+      font-size: 1.6rem;
       font-weight: bold;
-      line-height: 70px;
+      line-height: 60px;
       text-align: center;
       margin: 10px;
     }

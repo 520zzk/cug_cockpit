@@ -19,7 +19,8 @@ export default {
         title: {
           text: '联通互联流量',
           textStyle: {
-            color: '#fff'
+            color: '#fff',
+            fontSize: 16
           }
         },
         tooltip: {

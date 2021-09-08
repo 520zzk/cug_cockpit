@@ -2,7 +2,7 @@
   <div class="left-chart-1">
    <div class="bc-chart-item">
       <!-- <div class="bcci-header">联通出口流量</div> -->
-      <div id="option_1" class="bottom-charts"></div>
+      <div id="option_8" class="bottom-charts"></div>
        <dv-decoration-2 style="height:10px;" />
     </div>
   </div>
@@ -17,9 +17,10 @@ export default {
     return {
       option: {
         title: {
-          text: '联通出口流量',
+          text: '广佳互联流量',
           textStyle: {
             color: '#fff',
+            fontSize: 16
           }
         },
         tooltip: {
@@ -76,11 +77,11 @@ export default {
             smooth: true,
             symbol: 'none',
             itemStyle: {
-              color: 'rgb(255, 70, 131)',
+              color: '#469f4b',
               borderWidth: 0
             },
             areaStyle: {
-              color: 'rgb(255, 70, 131)'
+              color: '#469f4b'
             },
             data: []
           },
@@ -106,12 +107,13 @@ export default {
 
   },
   mounted () {
-    this.myChart_1 = echarts.init(document.getElementById('option_1'))
+    this.myChart_1 = echarts.init(document.getElementById('option_8'))
     this.init()
   },
   methods: {
     init () {
-      this.handleData('IF-10.80.16.120.30000000001-30000025622', this.option, this.myChart_1)
+      // IF-10.92.0.4.30000000001-30000019428 et-1/0/49-LinK_To_GuangJia_DWDM 10.92.0.4 广佳互联流量
+      this.handleData('IF-10.92.0.4.30000000001-30000019428', this.option, this.myChart_1)
     },
     handleData (interfaceName, option, target) {
       let optionTemp = { ...option }
@@ -131,7 +133,7 @@ export default {
         }
         target.setOption(optionTemp)
       })
-    }, 
+    }
   }
 }
 </script>

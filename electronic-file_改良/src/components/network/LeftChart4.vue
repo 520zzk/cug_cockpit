@@ -2,7 +2,7 @@
   <div class="left-chart-1">
    <div class="bc-chart-item">
       <!-- <div class="bcci-header">联通出口流量</div> -->
-      <div id="option_2" class="bottom-charts"></div>
+      <div id="option_4" class="bottom-charts"></div>
        <dv-decoration-2 style="height:10px;" />
     </div>
   </div>
@@ -17,9 +17,10 @@ export default {
     return {
       option: {
         title: {
-          text: '电信出口流量',
+          text: '广佳出口流量',
           textStyle: {
-            color: '#fff'
+            color: '#fff',
+            fontSize: 16
           }
         },
         tooltip: {
@@ -106,12 +107,13 @@ export default {
 
   },
   mounted () {
-    this.myChart_1 = echarts.init(document.getElementById('option_2'))
+    this.myChart_1 = echarts.init(document.getElementById('option_4'))
     this.init()
   },
   methods: {
     init () {
-      this.handleData('IF-10.80.16.120.30000000001-30000025623', this.option, this.myChart_1)
+      // 广佳出口流量
+      this.handleData('IF-10.80.16.120.30000000001-30000025626', this.option, this.myChart_1)
     },
     handleData (interfaceName, option, target) {
       let optionTemp = { ...option }
