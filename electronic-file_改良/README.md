@@ -1,16 +1,20 @@
 <h1 align="center">Electronic-File</h1>
 
-## Project setup
+## 依赖安装
 ```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn run dev
+npm install
 ```
 
-### Compiles and minifies for production
+### 项目运行
 ```
-yarn run build
+npm run dev
+```
+
+### 项目打包
+```
+npm run build
+```
+###  注意
+```
+访问需要使用vpn才可以获取数据,模拟数据已删除
 ```
